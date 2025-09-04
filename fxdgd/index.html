@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comandos SQL: DDL, DML, Filtros e Consultas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #ffffff;
+      color: #333;
+    }
+    h1, h2 {
+      color: #1e90ff;
+    }
+    code {
+      background-color: #8d4141;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Comandos SQL Explicados com Exemplos</h1>
+
+  <h2>DDL – Data Definition Language</h2>
+  <p><strong>Usado para definir ou modificar a estrutura do banco de dados.</strong></p>
+
+  <h3>CREATE DATABASE</h3>
+  <p>Cria um novo banco de dados.</p>
+  <pre><code>CREATE DATABASE Escola;</code></pre>
+
+  <h3>USE</h3>
+  <p>Seleciona qual banco será utilizado.</p>
+  <pre><code>USE Escola;</code></pre>
+
+  <h3>CREATE TABLE</h3>
+  <p>Cria uma nova tabela no banco.</p>
+  <pre><code>CREATE TABLE Alunos (
+    id INT PRIMARY KEY,
+    nome VARCHAR(100),
+    idade INT
+);</code></pre>
+
+  <h3>ALTER TABLE</h3>
+  <p>Modifica a estrutura de uma tabela existente.</p>
+  <pre><code>ALTER TABLE Alunos ADD email VARCHAR(100);</code></pre>
+
+  <h3>DROP COLUMN</h3>
+  <p>Remove uma coluna de uma tabela.</p>
+  <pre><code>ALTER TABLE Alunos DROP COLUMN email;</code></pre>
+
+  <h3>DESCRIBE</h3>
+  <p>Exibe a estrutura de uma tabela.</p>
+  <pre><code>DESCRIBE Alunos;</code></pre>
+
+  <hr>
+
+  <h2>DML – Data Manipulation Language</h2>
+  <p><strong>Usado para manipular os dados nas tabelas.</strong></p>
+
+  <h3>INSERT INTO</h3>
+  <p>Insere dados em uma tabela.</p>
+  <pre><code>INSERT INTO Alunos (id, nome, idade) VALUES (1, 'Maria', 17);</code></pre>
+
+  <h3>UPDATE</h3>
+  <p>Atualiza dados existentes.</p>
+  <pre><code>UPDATE Alunos SET idade = 18 WHERE id = 1;</code></pre>
+
+  <h3>DELETE FROM</h3>
+  <p>Remove dados de uma tabela.</p>
+  <pre><code>DELETE FROM Alunos WHERE id = 1;</code></pre>
+
+  <hr>
+
+  <h2>Cláusulas de Filtro</h2>
+  <p><strong>Usadas para filtrar os resultados das consultas.</strong></p>
+
+  <h3>WHERE</h3>
+  <p>Aplica uma condição para filtrar os dados.</p>
+  <pre><code>SELECT * FROM Alunos WHERE idade > 17;</code></pre>
+
+  <h3>AND, OR, NOT</h3>
+  <p>Combinam condições lógicas.</p>
+  <pre><code>SELECT * FROM Alunos WHERE idade > 17 AND nome = 'Maria';
+SELECT * FROM Alunos WHERE NOT idade < 18;</code></pre>
+
+  <h3>LIKE</h3>
+  <p>Filtra valores com base em padrões.</p>
+  <pre><code>SELECT * FROM Alunos WHERE nome LIKE 'M%'; -- Começa com M
+SELECT * FROM Alunos WHERE nome LIKE '%a'; -- Termina com a</code></pre>
+
+  <hr>
+
+  <h2>Consultas e Relacionamentos</h2>
+  <p><strong>Para consultar dados e unir tabelas relacionadas.</strong></p>
+
+  <h3>SELECT</h3>
+  <p>Seleciona dados de uma tabela.</p>
+  <pre><code>SELECT nome, idade FROM Alunos;</code></pre>
+
+  <h3>JOIN</h3>
+  <p>Relaciona dados de duas tabelas com base em uma chave.</p>
+  <pre><code>SELECT Alunos.nome, Notas.nota
+FROM Alunos
+JOIN Notas ON Alunos.id = Notas.aluno_id;</code></pre>
+
+</body>
+</html>
+
